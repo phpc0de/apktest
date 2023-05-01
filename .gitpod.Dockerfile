@@ -7,11 +7,7 @@ ENV PATH="$HOME/Android/Sdk/emulator:$HOME/Android/Sdk/tools:$HOME/Android/Sdk/c
 # Install Open JDK for android and other dependencies
 USER root
 
-RUN curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.gpg | sudo apt-key add - \
-     && curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.list | sudo tee /etc/apt/sources.list.d/tailscale.list \
-     && apt-get update \
-     && apt-get install -y tailscale
-RUN update-alternatives --set ip6tables /usr/sbin/ip6tables-nft
+RUN apt-get update
 
 
 RUN install-packages openjdk-8-jdk -y \
